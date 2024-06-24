@@ -12,5 +12,5 @@ func NewProductsRoutes() *ProductsRoutes {
 }
 
 func Init(app fiber.Router) {
-	productsRoutes := NewProductsRoutes()
+	_ = NewProductsRoutes()
 }
