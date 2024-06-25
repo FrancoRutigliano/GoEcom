@@ -1,18 +1,17 @@
 package get
 
 import (
+	"GoEcom/pkg/usesCases/handlers/users"
+
 	"github.com/gofiber/fiber/v2"
 )
-
-type IUserGet interface {
-	GetUsers(c *fiber.Ctx) error
-	GetUserByID(c *fiber.Ctx) error
-}
 
 // UserGet implementa IUserGet
 type UserGet struct{}
 
-func Init(r fiber.Router, i IUserGet) {
-	r.Get("/all", i.GetUsers)
-	r.Get("/:id", i.GetUserByID)
+func Init(r fiber.Router, h users.Handler) {
+	u := UserGet{}
+
+	r.Get("/all", u.GetUsers)
+	r.Get("/:id", u.GetUserByID)
 }
