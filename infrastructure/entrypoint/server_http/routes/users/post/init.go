@@ -7,6 +7,7 @@ import (
 )
 
 type UserPost struct {
+	Handler users.Handler
 }
 
 func Init(r fiber.Router, h users.Handler) {

@@ -7,7 +7,9 @@ import (
 )
 
 // UserGet implementa IUserGet
-type UserGet struct{}
+type UserGet struct {
+	Handler users.Handler
+}
 
 func Init(r fiber.Router, h users.Handler) {
 	u := UserGet{}
