@@ -4,10 +4,11 @@ import (
 	"log"
 
 	"github.com/jmoiron/sqlx"
+	_ "github.com/lib/pq"
 )
 
 func GetConnection() *sqlx.DB {
-	db, err := sqlx.Connect("postgres", "postgres://user:1234@localhost:5432/mydb?sslmode=disable")
+	db, err := sqlx.Connect("postgres", "user=user dbname=mydb password=password sslmode=disable")
 	if err != nil {
 		log.Fatal("error connecting to database: ", err)
 	}
