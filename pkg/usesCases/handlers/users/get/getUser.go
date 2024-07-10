@@ -1,9 +1,15 @@
 package get
 
-import users "GoEcom/pkg/domain"
+import (
+	"GoEcom/infrastructure/data"
+	users "GoEcom/pkg/domain"
+)
 
-func (g *Get) GetUsers() users.CustomerInfo {
+func (g *Get) GetUsers() []users.CustomerInfo {
+
+	db := data.GetConnection()
+
 	g.UserRepository.NewUserRepository()
-	response := g.UserRepository.Get.GetUsers()
+	response, _ := g.UserRepository.Get.GetUsers(db)
 	return response
 }
