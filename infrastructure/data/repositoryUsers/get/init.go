@@ -8,6 +8,7 @@ import (
 
 type IUserGet interface {
 	GetUsers(*sqlx.DB) ([]users.CustomerInfo, error)
+	GetUserByName(string, *sqlx.DB) (users.CustomerInfo, error)
 }
 
 type UserGet struct {

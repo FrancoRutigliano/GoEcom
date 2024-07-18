@@ -7,6 +7,7 @@ import (
 
 type Iget interface {
 	GetUsers() []usersDomain.CustomerInfo
+	GetUserByName(string) usersDomain.CustomerInfo
 }
 
 type Get struct {
