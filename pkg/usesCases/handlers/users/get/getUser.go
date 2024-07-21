@@ -5,11 +5,11 @@ import (
 	users "GoEcom/pkg/domain"
 )
 
-func (g *Get) GetUsers() []users.CustomerInfo {
+func (g *Get) GetUsers() ([]users.CustomerInfo, error) {
 
 	db := data.GetConnection()
 
 	g.UserRepository.NewUserRepository()
-	response, _ := g.UserRepository.Get.GetUsers(db)
-	return response
+	response, err := g.UserRepository.Get.GetUsers(db)
+	return response, err
 }

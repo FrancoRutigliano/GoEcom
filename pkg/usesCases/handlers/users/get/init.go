@@ -6,8 +6,9 @@ import (
 )
 
 type Iget interface {
-	GetUsers() []usersDomain.CustomerInfo
-	GetUserByName(string) usersDomain.CustomerInfo
+	GetUsers() ([]usersDomain.CustomerInfo, error)
+	GetUserByName(string) (usersDomain.CustomerInfo, error)
+	GetUserById(string) (usersDomain.CustomerInfo, error)
 }
 
 type Get struct {

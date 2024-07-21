@@ -16,4 +16,5 @@ func Init(r fiber.Router, h users.Handler) {
 	u.Handler = h
 	r.Get("/all", u.GetUsers)
 	r.Get("/:name", u.GetUserByName)
+	r.Get("/:id")
 }
