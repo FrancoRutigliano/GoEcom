@@ -42,4 +42,6 @@ func main() {
 			log.Fatal(err)
 		}
 	}
+
+	log.Println("Migration completed:", cmd)
 }
