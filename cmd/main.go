@@ -1,18 +1,16 @@
 package main
 
-import (
-	server "GoEcom/infrastructure/entrypoint/server_http"
-	"log"
-)
+import serverhttp "GoEcom/shared/infrastructure/entrypoint/server_http"
 
 func init() {
 
 }
 
 func main() {
-	s := server.NewServer()
+	server := serverhttp.NewServer()
 
-	if err := s.Run(); err != nil {
-		log.Fatal("error running server: ", err)
+	err := server.Run()
+	if err != nil {
+		panic(err)
 	}
 }
