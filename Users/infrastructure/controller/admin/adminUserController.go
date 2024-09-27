@@ -8,17 +8,16 @@ import (
 
 type AdminUserController struct {
 	// use cases de admin
-	admin adminUseCase.Admin
+	adminUseCase adminUseCase.Admin
 }
 
 func (a *AdminUserController) NewAdminUserController() {
-
 }
 
 func (a *AdminUserController) GetUsers(f *fiber.Ctx) error {
 
 	// interaccion con caso de uso admin
-	response, err := a.admin.GetUsers()
+	response, err := a.adminUseCase.GetUsers()
 	if err != nil {
 		return f.Status(500).JSON(fiber.Map{"message": "oops something went wrong"})
 	}

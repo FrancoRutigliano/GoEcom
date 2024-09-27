@@ -13,5 +13,7 @@ func GetConnection() *sqlx.DB {
 		log.Fatal("error connecting to database: ", err)
 	}
 
+	log.Println("connected to database")
+
 	return db
 }
